@@ -1,1 +1,34 @@
 <app-header></app-header>
+
+<div class="login-prop">
+  <h1>Insira seus dados, Imundo</h1>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input
+      type="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+
+    <input
+      type="password"
+      placeholder="Senha"
+      formControlName="senha"
+    />
+
+    <a class="esqueceu-senha" routerLink="/recuperar-senha">
+      Esqueceu sua senha?
+    </a>
+
+    <button type="submit" class="login-botao" [disabled]="loginForm.invalid" (click)="onLogin()">
+      Login
+    </button>
+  </form>
+
+  <p class="cadastrar-texto">
+    Ainda não tem uma conta?
+  </p>
+  <a class="cadastrar-link" routerLink="/criar-conta">
+    Crie agora!
+  </a>
+</div>

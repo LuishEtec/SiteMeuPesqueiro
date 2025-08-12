@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-loginprop',
-  imports:[HeaderComponent],
+  imports:[HeaderComponent, ReactiveFormsModule],
   templateUrl: './loginprop.component.html',
   styleUrls: ['./loginprop.component.css']
 })
@@ -22,7 +22,7 @@ export class LoginpropComponent {
   onLogin() {
     if (this.loginForm.valid) {
       console.log('Dados do formulário:', this.loginForm.value);
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['/pagamento']);
     }
   }
 }

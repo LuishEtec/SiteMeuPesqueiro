@@ -1,7 +1,7 @@
 <app-header></app-header>
 
-<div class="login-container">
-  <h1>Insira seus dados</h1>
+<div class="login-prop">
+  <h1>Insira seus dados, Magnata</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <input
@@ -16,19 +16,19 @@
       formControlName="senha"
     />
 
-    <a class="forgot-link" routerLink="/recuperar-senha">
+    <a class="esqueceu-senha" routerLink="/recuperar-senha">
       Esqueceu sua senha?
     </a>
 
-    <button type="submit" class="login-button" [disabled]="loginForm.invalid">
+    <button type="submit" class="login-botao" [disabled]="loginForm.invalid" (click)="onLogin()">
       Login
     </button>
   </form>
 
-  <p class="signup-text">
+  <p class="cadastrar-texto">
     Ainda não tem uma conta?
   </p>
-  <a class="signup-link" routerLink="/criar-conta">
+  <a class="cadastrar-link" routerLink="/criar-conta">
     Crie agora!
   </a>
 </div>
