@@ -1,11 +1,11 @@
 <app-header></app-header>
-<main class="main-content">
+<main class="content-page">
   <h1>Registre seu pesqueiro!</h1>
-  <p class="sub-text">Gerencie seu negocio agora!<br />Apenas por 29,99/mês</p>
+  <p class="sub-titulo">Gerencie seu negocio agora!<br />Apenas por R$29,99/mês</p>
 
-  <button class="register-btn">Cadastrar pesqueiro</button>
+  <button class="botao-cadastro" (click)="navigateToLoginprop()"> <a href="loginprop">Cadastrar pesqueiro</a></button>
 
-  <p class="client-text">
-    É cliente? <a href="#">Entre agora para ver os pesqueiros próximos a você</a>
+  <p class="cliente-texto" (click)="navigateToLoginfunc()">
+    É cliente? <a href="logincliente">Entre agora para ver os pesqueiros próximos a você</a>
   </p>
 </main>

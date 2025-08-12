@@ -1,0 +1,59 @@
+.login-prop {
+  max-width: 400px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.forgot-link {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #1e90ff;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4da3ff;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #1e90ff;
+}
+
+.signup-text {
+  margin-top: 15px;
+}
+
+.signup-link {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}

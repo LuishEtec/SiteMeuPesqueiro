@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,14 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   imglogo: string = "Logo.png";
   usericon: string = "usericon.png";
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  navigateToInicio(): void {
+    this.router.navigate(['/inicio']);
+  }
 
 }

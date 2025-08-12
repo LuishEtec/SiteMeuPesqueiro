@@ -1,4 +1,4 @@
-.main-content {
+.content-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,19 +7,19 @@
   text-align: center;
 }
 
-.main-content h1 {
+.content-page h1 {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.sub-text {
+.sub-titulo {
   font-size: 22px;
   color: gray;
   margin-bottom: 30px;
 }
 
-.register-btn {
+.botao-cadastro {
   background-color: #3A95DF;
   color: black;
   font-size: 22px;
@@ -30,21 +30,25 @@
   transition: 0.2s ease;
 }
 
-.register-btn:hover {
-  background-color: #3A95DF;
+.botao-cadastro a {
+   text-decoration: none;
+  color: black;
 }
 
-.client-text {
+.botao-cadastro:hover {
+  transform: scale(1.1);
+}
+.cliente-texto {
   margin-top: 15px;
   font-size: 14px;
   font-weight: lighter;
 }
 
-.client-text a {
+.cliente-texto a {
   color: #3498db;
   text-decoration: none;
 }
 
-.client-text a:hover {
+.cliente-texto a:hover {
   text-decoration: underline;
 }
