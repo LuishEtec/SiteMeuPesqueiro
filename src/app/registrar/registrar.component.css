@@ -19,9 +19,8 @@ input {
   border-radius: 5px;
 }
 
-
 .registrar-botao {
-  width: 100%;
+  width: 55%;
   padding: 12px;
   background-color: #3A95DF;
   color: rgb(0, 0, 0);
@@ -49,4 +48,10 @@ input {
 .login-link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.requisitos {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
 }

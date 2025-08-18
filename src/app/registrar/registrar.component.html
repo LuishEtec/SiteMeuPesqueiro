@@ -4,19 +4,49 @@
   <h1>Insira seus dados, Magnata</h1>
 
   <form [formGroup]="registrarForm" (ngSubmit)="onRegistrar()">
+
+    <input
+      type="text"
+      placeholder="Nome"
+      formControlName="nome"
+    />
+    <p class="requisitos"
+       [style.display]="registrarForm.get('nome')?.invalid && registrarForm.get('nome')?.touched ? 'block' : 'none'">
+      *Digite seu nome
+    </p>
+
     <input
       type="email"
       placeholder="Email"
       formControlName="email"
     />
+    <p class="requisitos"
+       [style.display]="registrarForm.get('email')?.invalid && registrarForm.get('email')?.touched ? 'block' : 'none'">
+      *Digite um email válido
+    </p>
 
     <input
       type="password"
       placeholder="Senha"
       formControlName="senha"
+      (focus)="mostrarRequisito = true"
+      (blur)="mostrarRequisito = false"
     />
+    <p class="requisitos" [style.display]="mostrarRequisito ? 'block' : 'none'">
+      *Sua senha deve ter ao menos 6 caracteres
+    </p>
 
-    <button type="submit" class="registrar-botao" [disabled]="registrarForm.invalid" (click)="onRegistrar()">
+    <input
+      type="password"
+      placeholder="Confirme sua senha"
+      formControlName="confirmarSenha"
+    />
+    <p class="requisitos"
+       [style.display]="registrarForm.hasError('senhasDiferentes') && registrarForm.get('confirmarSenha')?.touched ? 'block' : 'none'">
+      As senhas não coincidem!
+    </p>
+
+    <button type="submit" class="registrar-botao" [disabled]="registrarForm.invalid">
       Registrar
     </button>
   </form>

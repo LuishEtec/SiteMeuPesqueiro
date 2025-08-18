@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 
@@ -11,12 +11,24 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class RegistrarComponent {
   registrarForm: FormGroup;
+  mostrarRequisito = false;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.registrarForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(6)]]
-    });
+    this.registrarForm = this.fb.group(
+      {
+        nome: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        senha: ['', [Validators.required, Validators.minLength(6)]],
+        confirmarSenha: ['', [Validators.required]],
+      },
+      { validators: this.senhasIguaisValidator }
+    );
+  }
+
+  senhasIguaisValidator(form: AbstractControl) {
+    const senha = form.get('senha')?.value;
+    const confirmarSenha = form.get('confirmarSenha')?.value;
+    return senha === confirmarSenha ? null : { senhasDiferentes: true };
   }
 
   onRegistrar() {
@@ -25,6 +37,7 @@ export class RegistrarComponent {
       this.router.navigate(['/escolhasistema']);
     }
   }
+
   navigateToLogin(): void {
     this.router.navigate(['/login']);
   }
