@@ -4,25 +4,28 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-logincliente',
+  selector: 'app-registrar',
   imports:[HeaderComponent, ReactiveFormsModule],
-  templateUrl: './logincliente.component.html',
-  styleUrls: ['./logincliente.component.css']
+  templateUrl: './registrar.component.html',
+  styleUrls: ['./registrar.component.css']
 })
-export class LoginclienteComponent {
-  loginForm: FormGroup;
+export class RegistrarComponent {
+  registrarForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
+    this.registrarForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  onLogin() {
-    if (this.loginForm.valid) {
-      console.log('Dados do formulário:', this.loginForm.value);
-      this.router.navigate(['/pagamento']);
+  onRegistrar() {
+    if (this.registrarForm.valid) {
+      console.log('Dados do formulário:', this.registrarForm.value);
+      this.router.navigate(['/escolhasistema']);
     }
+  }
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }

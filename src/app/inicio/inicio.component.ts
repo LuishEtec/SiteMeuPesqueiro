@@ -12,11 +12,10 @@ export class InicioComponent {
 
   constructor(private router: Router) {}
 
-  navigateToLoginprop(): void {
-    this.router.navigate(['/loginprop']);
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
-
-  navigateToLoginfunc(): void {
-    this.router.navigate(['/logincliente']);
+  navigateToRegistrar(): void {
+    this.router.navigate(['/registrar']);
   }
 }

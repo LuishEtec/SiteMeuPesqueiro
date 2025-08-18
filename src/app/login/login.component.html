@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="login-prop">
+<div class="login">
   <h1>Insira seus dados, Magnata</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -28,7 +28,7 @@
   <p class="cadastrar-texto">
     Ainda não tem uma conta?
   </p>
-  <a class="cadastrar-link" routerLink="/criar-conta">
+  <a class="cadastrar-link" (click)="navigateToRegistrar()">
     Crie agora!
   </a>
 </div>

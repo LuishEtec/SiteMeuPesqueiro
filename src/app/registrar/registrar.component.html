@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="registrar">
+  <h1>Insira seus dados, Magnata</h1>
+
+  <form [formGroup]="registrarForm" (ngSubmit)="onRegistrar()">
+    <input
+      type="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+
+    <input
+      type="password"
+      placeholder="Senha"
+      formControlName="senha"
+    />
+
+    <button type="submit" class="registrar-botao" [disabled]="registrarForm.invalid" (click)="onRegistrar()">
+      Registrar
+    </button>
+  </form>
+
+  <p class="login-texto">
+    Já tem uma conta?
+  </p>
+  <a class="login-link" (click)="navigateToLogin()">
+    Entre agora!
+  </a>
+</div>

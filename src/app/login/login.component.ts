@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-loginprop',
+  selector: 'app-login',
   imports:[HeaderComponent, ReactiveFormsModule],
-  templateUrl: './loginprop.component.html',
-  styleUrls: ['./loginprop.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginpropComponent {
+export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
@@ -22,7 +22,10 @@ export class LoginpropComponent {
   onLogin() {
     if (this.loginForm.valid) {
       console.log('Dados do formulário:', this.loginForm.value);
-      this.router.navigate(['/pagamento']);
+      this.router.navigate(['/escolhasistema']);
     }
+  }
+   navigateToRegistrar(): void {
+    this.router.navigate(['/registrar']);
   }
 }
