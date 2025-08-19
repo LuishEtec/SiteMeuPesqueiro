@@ -11,8 +11,8 @@
       formControlName="nome"
     />
     <p class="requisitos"
-       [style.display]="registrarForm.get('nome')?.invalid && registrarForm.get('nome')?.touched ? 'block' : 'none'">
-      *Digite seu nome
+       [hidden]="!(registrarForm.get('nome')?.invalid && registrarForm.get('nome')?.touched)">
+      *Digite um nome válido
     </p>
 
     <input
@@ -21,7 +21,7 @@
       formControlName="email"
     />
     <p class="requisitos"
-       [style.display]="registrarForm.get('email')?.invalid && registrarForm.get('email')?.touched ? 'block' : 'none'">
+       [hidden]="!(registrarForm.get('email')?.invalid && registrarForm.get('email')?.touched)">
       *Digite um email válido
     </p>
 
@@ -32,7 +32,7 @@
       (focus)="mostrarRequisito = true"
       (blur)="mostrarRequisito = false"
     />
-    <p class="requisitos" [style.display]="mostrarRequisito ? 'block' : 'none'">
+    <p class="requisitos" [hidden]="!mostrarRequisito">
       *Sua senha deve ter ao menos 6 caracteres
     </p>
 
@@ -42,7 +42,7 @@
       formControlName="confirmarSenha"
     />
     <p class="requisitos"
-       [style.display]="registrarForm.hasError('senhasDiferentes') && registrarForm.get('confirmarSenha')?.touched ? 'block' : 'none'">
+       [hidden]="!(registrarForm.hasError('senhasDiferentes') && registrarForm.get('confirmarSenha')?.touched)">
       As senhas não coincidem!
     </p>
 

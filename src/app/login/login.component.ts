@@ -28,4 +28,7 @@ export class LoginComponent {
    navigateToRegistrar(): void {
     this.router.navigate(['/registrar']);
   }
+  navigateToEsqueceuSenha(): void {
+    this.router.navigate(['/esqueceusenha'])
+  }
 }

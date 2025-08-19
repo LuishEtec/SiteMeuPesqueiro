@@ -9,6 +9,10 @@
       placeholder="Email"
       formControlName="email"
     />
+    <p class="requisitos"
+       [hidden]="!(loginForm.get('email')?.invalid && loginForm.get('email')?.touched)">
+      *Digite um email válido
+    </p>
 
     <input
       type="password"
@@ -16,7 +20,7 @@
       formControlName="senha"
     />
 
-    <a class="esqueceu-senha" routerLink="/recuperar-senha">
+    <a class="esqueceu-senha" (click)="navigateToEsqueceuSenha()">
       Esqueceu sua senha?
     </a>
 

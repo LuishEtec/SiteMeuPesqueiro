@@ -5,6 +5,7 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
 import { LoginComponent } from './login/login.component';
 import { EscolhasistemaComponent } from './escolhasistema/escolhasistema.component';
 import { RegistrarComponent } from './registrar/registrar.component';
+import { EsqueceusenhaComponent } from './esqueceusenha/esqueceusenha.component';
 
 export const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
   {path: 'pagamento', component: PagamentoComponent},
   {path: 'escolhasistema', component: EscolhasistemaComponent},
   {path: 'registrar', component: RegistrarComponent},
+  {path: 'esqueceusenha', component: EsqueceusenhaComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
