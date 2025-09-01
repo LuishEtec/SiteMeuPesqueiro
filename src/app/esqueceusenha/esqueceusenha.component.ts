@@ -6,7 +6,7 @@ import { NgIf } from "../../../node_modules/@angular/common/common_module.d-NEF7
 
 @Component({
   selector: 'app-esqueceusenha',
-  imports: [HeaderComponent, ReactiveFormsModule, NgIf],
+  imports: [HeaderComponent, ReactiveFormsModule],
   templateUrl: './esqueceusenha.component.html',
   styleUrl: './esqueceusenha.component.css'
 })
@@ -22,10 +22,8 @@ export class EsqueceusenhaComponent {
   enviarEmail() {
     if (this.esqueceusenhaForm.valid) {
       console.log('Dados do formulário:', this.esqueceusenhaForm.value);
-      this.mensagem = 'Enviamos um email para você resetar sua senha';
-    } else{
-      this.mensagem = 'Preencha os campos corretamente';
-    }
+      this.mensagem = 'Enviamos um email para você resetar sua senha.';
+    } 
   }
 
 }

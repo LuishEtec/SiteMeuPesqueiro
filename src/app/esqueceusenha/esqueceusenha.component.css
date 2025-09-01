@@ -35,3 +35,10 @@ input {
 .botao-mudar:hover {
   transform: scale(1.1);
 }
+
+
+.requisitos {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
