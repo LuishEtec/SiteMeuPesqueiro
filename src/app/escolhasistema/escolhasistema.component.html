@@ -1,1 +1,22 @@
-<p>escolhasistema works!</p>
+<app-header></app-header>
+
+<div class="escolha-sistema">
+  <h1 class="titulo">Escolha um sistema</h1>
+  <p class="subtitulo">Selecione uma opção para continuar</p>
+
+  <div class="cartoes">
+    <button type="button" class="cartao" (click)="select('proprietario')">
+      <img [src]="propicon" alt="Proprietário" class="icone-prop" />
+      <p class="legenda">Proprietário</p>
+    </button>
+
+    <button type="button" class="cartao" (click)="select('usuario')">
+      <img [src]="clienteicon" alt="Usuário" class="icone-usuario" />
+      <p class="legenda">Usuário</p>
+    </button>
+  </div>
+
+  <button class="botao-continuar" [disabled]="!selected" (click)="onContinue()">
+    Continuar
+  </button>
+</div>
