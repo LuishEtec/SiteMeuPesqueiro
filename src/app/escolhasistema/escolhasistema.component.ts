@@ -1,30 +1,34 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-escolha-sistema',
-  imports: [HeaderComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './escolhasistema.component.html',
-  styleUrl: './escolhasistema.component.css'
+  styleUrl: './escolhasistema.component.css',
+  standalone: true
 })
-export class EscolhaSistemaComponent {
-  propicon: string = "propicon.png" 
-  clienteicon: string = "clienteicon.png"
 
-  selected: 'proprietario' | 'usuario' | null = null;
+export class EscolhaSistemaComponent {
+  usericon: string = 'clienteicon.png'
+  propicon: string = 'propicon.png'
+
+  selecionado: 'pagamento' | 'cliente' | null = null;
 
   constructor(private router: Router) {}
 
-  select(value: 'proprietario' | 'usuario') {
-    this.selected = value;
+  selecionar(opcao: 'pagamento' | 'cliente') {
+    this.selecionado = opcao;
   }
 
-  onContinue() {
-    if (!this.selected) return;
-    const target =
-      this.selected === 'proprietario' ? '/proprietario' : '/usuario';
-    this.router.navigateByUrl(target);
+  continuar() {
+    if (this.selecionado === 'pagamento') {
+      this.router.navigateByUrl('/pagamento');
+    } else if (this.selecionado === 'cliente') {
+      this.router.navigateByUrl('/cliente');
+    }
   }
 }

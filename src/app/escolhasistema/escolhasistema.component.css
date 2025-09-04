@@ -41,22 +41,9 @@
   border-color: #3A95DF;
 }
 
-.icone-prop {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-}
-.icone-usuario {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 15px;
-}
-
-.legenda {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #000;
-  margin: 0;
+.selecionado {
+  border-color: #3A95DF;
+  background: #E5F1FB;
 }
 
 .botao-continuar {
@@ -72,6 +59,11 @@
   transition: transform 0.2s ease;
 }
 
+.botao-continuar a{
+  text-decoration: none;
+  color: black;
+}
+
 .botao-continuar:hover:enabled {
   transform: scale(1.1);
 }
@@ -79,4 +71,23 @@
 .botao-continuar:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.icone-prop {
+  width: 80px;
+  height: 80px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.icone-cliente {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+.legenda {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: auto;
 }
