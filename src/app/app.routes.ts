@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { EscolhaSistemaComponent } from './escolhasistema/escolhasistema.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { EsqueceusenhaComponent } from './esqueceusenha/esqueceusenha.component';
+import { InstalarComponent } from './instalar/instalar.component';
 
 export const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {path: 'escolhasistema', component: EscolhaSistemaComponent},
   {path: 'registrar', component: RegistrarComponent},
   {path: 'esqueceusenha', component: EsqueceusenhaComponent},
+  {path: 'instalar', component: InstalarComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
