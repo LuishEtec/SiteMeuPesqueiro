@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "../header/header.component";
+import { HeadercadastradoComponent } from "../../headers/headercadastrado/headercadastrado.component";
 
 @Component({
   selector: 'app-instalar',
-  imports: [HeaderComponent],
+  imports: [HeadercadastradoComponent],
   templateUrl: './instalar.component.html',
   styleUrl: './instalar.component.css'
 })

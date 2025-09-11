@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
+import { HeadercadastradoComponent } from '../../headers/headercadastrado/headercadastrado.component';
 
 @Component({
   selector: 'app-pagamento',
-  imports: [HeaderComponent],
+  imports: [HeadercadastradoComponent],
   templateUrl: './pagamento.component.html',
   styleUrls: ['./pagamento.component.css']
 })

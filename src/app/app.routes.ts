@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component';
-import { HeaderComponent } from './header/header.component';
-import { PagamentoComponent } from './pagamento/pagamento.component';
-import { LoginComponent } from './login/login.component';
-import { EscolhaSistemaComponent } from './escolhasistema/escolhasistema.component';
-import { RegistrarComponent } from './registrar/registrar.component';
-import { EsqueceusenhaComponent } from './esqueceusenha/esqueceusenha.component';
-import { InstalarComponent } from './instalar/instalar.component';
+import { InicioComponent } from './components/sistema/inicio/inicio.component';
+import { LoginComponent } from './components/sistema/login/login.component';
+import { HeaderComponent } from './components/headers/header/header.component';
+import { PagamentoComponent } from './components/prop/pagamento/pagamento.component';
+import { EscolhaSistemaComponent } from './components/sistema/escolhasistema/escolhasistema.component';
+import { RegistrarComponent } from './components/sistema/registrar/registrar.component';
+import { EsqueceusenhaComponent } from './components/sistema/esqueceusenha/esqueceusenha.component';
+import { InstalarComponent } from './components/prop/instalar/instalar.component';
 
 export const routes: Routes = [
   {path: 'inicio', component: InicioComponent},

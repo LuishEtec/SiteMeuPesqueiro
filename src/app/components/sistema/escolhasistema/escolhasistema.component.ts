@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HeadercadastradoComponent } from "../../headers/headercadastrado/headercadastrado.component";
 
 @Component({
   selector: 'app-escolha-sistema',
-  imports: [HeaderComponent, ReactiveFormsModule, CommonModule],
+  imports: [HeadercadastradoComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './escolhasistema.component.html',
   styleUrl: './escolhasistema.component.css',
   standalone: true

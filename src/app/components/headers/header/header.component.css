@@ -18,6 +18,7 @@
   width: 57px;
   height: 57px;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .txtheader{
@@ -48,10 +49,8 @@
 }
 
 .user-icon-img {
-  width: 90px;
-  height: 90px;
-  margin-left: 10px;
+  width: 67px;
+  height: 67px;
   border-radius: 50%;
   object-fit: cover;
-
 }

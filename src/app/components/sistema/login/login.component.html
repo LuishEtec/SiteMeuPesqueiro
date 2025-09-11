@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="login">
-  <h1>Insira seus dados, Magnata</h1>
+  <h1>Insira seus dados</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <input
@@ -19,6 +19,10 @@
       placeholder="Senha"
       formControlName="senha"
     />
+    <p class="requisitos"
+       [hidden]="!(loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched)">
+      *Digite uma senha válida, mínimo de 6 caracteres
+    </p>
 
     <a class="esqueceu-senha" (click)="navigateToEsqueceuSenha()">
       Esqueceu sua senha?
