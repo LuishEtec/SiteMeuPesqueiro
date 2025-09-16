@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.lista-pesqueiros {
+  width: 30%;
+  background: #f9f9f9;
+  padding: 10px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+.item-pesqueiro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.item-pesqueiro:hover {
+  background: #e6f0ff;
+}
+.item-pesqueiro.selecionado {
+  border: 2px solid #007bff;
+}
+
+.info-pesqueiro {
+  flex: 1;
+}
+.nome {
+  font-weight: bold;
+}
+.foto-mini {
+  width: 60px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.detalhes-pesqueiro {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.carrossel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.foto-grande {
+  width: 60%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.endereco, .info-detalhada {
+  margin-top: 15px;
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.acoes {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
+}
+.botao-mapa {
+  margin-top: 20px;
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+.favorito {
+  background: gold;
+  font-weight: bold;
+}

@@ -1,0 +1,56 @@
+<app-headercadastrado></app-headercadastrado>
+<div class="container">
+  <div class="lista-pesqueiros">
+    <h3>Pesqueiros próximos de você</h3>
+
+    <div
+      class="item-pesqueiro"
+      *ngFor="let pesq of pesqueiros"
+      (click)="selecionarPesqueiro(pesq)"
+      [class.selecionado]="pesq === pesqueiroSelecionado"
+    >
+      <div class="info-pesqueiro">
+        <p class="nome">{{ pesq.nome }}</p>
+        <p class="avaliacao">{{ pesq.avaliacao }} ★ ({{ pesq.qtdAvaliacoes }})</p>
+      </div>
+      <img [src]="pesq.foto" class="foto-mini" alt="foto do pesqueiro" />
+    </div>
+  </div>
+
+  <div class="detalhes-pesqueiro" *ngIf="pesqueiroSelecionado">
+    <h2>{{ pesqueiroSelecionado.nome }}</h2>
+
+    <div class="carrossel">
+      <button (click)="anteriorFoto()">&#8592;</button>
+      <img
+        [src]="pesqueiroSelecionado.fotos[fotoAtual]"
+        alt="foto do pesqueiro"
+        class="foto-grande"
+      />
+      <button (click)="proximaFoto()">&#8594;</button>
+    </div>
+
+    <div class="endereco">
+      <h4>Endereço do pesqueiro</h4>
+      <p>{{ pesqueiroSelecionado.endereco }}</p>
+    </div>
+
+    <div class="info-detalhada">
+      <h4>Informações do pesqueiro</h4>
+      <p>{{ pesqueiroSelecionado.informacoes }}</p>
+    </div>
+
+    <div class="acoes">
+      <p class="avaliacao-detalhe">
+        Avaliação: {{ pesqueiroSelecionado.avaliacao }} ★ ({{ pesqueiroSelecionado.qtdAvaliacoes }})
+      </p>
+      <button (click)="favoritar(pesqueiroSelecionado)"
+              [class.favorito]="pesqueiroSelecionado.favorito">
+        {{ pesqueiroSelecionado.favorito ? '★ Favorito' : '☆ Favoritar' }}
+      </button>
+    </div>
+    <button class="botao-mapa">
+      Clique para ver no mapa
+    </button>
+  </div>
+</div>

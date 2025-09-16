@@ -7,6 +7,7 @@ import { EscolhaSistemaComponent } from './components/sistema/escolhasistema/esc
 import { RegistrarComponent } from './components/sistema/registrar/registrar.component';
 import { EsqueceusenhaComponent } from './components/sistema/esqueceusenha/esqueceusenha.component';
 import { InstalarComponent } from './components/prop/instalar/instalar.component';
+import { InicioclienteComponent } from './iniciocliente/iniciocliente.component';
 
 export const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path: 'registrar', component: RegistrarComponent},
   {path: 'esqueceusenha', component: EsqueceusenhaComponent},
   {path: 'instalar', component: InstalarComponent},
+  {path: 'iniciocliente', component: InicioclienteComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];

@@ -16,19 +16,19 @@ export class EscolhaSistemaComponent {
   usericon: string = 'clienteicon.png'
   propicon: string = 'propicon.png'
 
-  selecionado: 'pagamento' | 'cliente' | null = null;
+  selecionado: 'pagamento' | 'iniciocliente' | null = null;
 
   constructor(private router: Router) {}
 
-  selecionar(opcao: 'pagamento' | 'cliente') {
+  selecionar(opcao: 'pagamento' | 'iniciocliente') {
     this.selecionado = opcao;
   }
 
   continuar() {
     if (this.selecionado === 'pagamento') {
       this.router.navigateByUrl('/pagamento');
-    } else if (this.selecionado === 'cliente') {
-      this.router.navigateByUrl('/cliente');
+    } else if (this.selecionado === 'iniciocliente') {
+      this.router.navigateByUrl('/iniciocliente');
     }
   }
 }
