@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeadercadastradoComponent } from "../components/headers/headercadastrado/headercadastrado.component";
+import { HeadercadastradoComponent } from '../../headers/headercadastrado/headercadastrado.component';
 
 interface Pesqueiro {
   nome: string;

@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { InicioComponent } from './components/sistema/inicio/inicio.component';
 import { LoginComponent } from './components/sistema/login/login.component';
@@ -7,7 +8,8 @@ import { EscolhaSistemaComponent } from './components/sistema/escolhasistema/esc
 import { RegistrarComponent } from './components/sistema/registrar/registrar.component';
 import { EsqueceusenhaComponent } from './components/sistema/esqueceusenha/esqueceusenha.component';
 import { InstalarComponent } from './components/prop/instalar/instalar.component';
-import { InicioclienteComponent } from './iniciocliente/iniciocliente.component';
+import { InicioclienteComponent } from './components/cliente/iniciocliente/iniciocliente.component';
+import { AlterarinformacoesComponent } from './components/sistema/alterarinformacoes/alterarinformacoes.component';
 
 export const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
@@ -19,5 +21,6 @@ export const routes: Routes = [
   {path: 'esqueceusenha', component: EsqueceusenhaComponent},
   {path: 'instalar', component: InstalarComponent},
   {path: 'iniciocliente', component: InicioclienteComponent},
+  {path: 'alterarinformacoes', component: AlterarinformacoesComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];

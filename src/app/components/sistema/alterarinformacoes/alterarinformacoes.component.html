@@ -1,0 +1,22 @@
+<div class="container">
+  <app-headercadastrado></app-headercadastrado>
+
+  <main class="form-container">
+    <h1>Alterar Informações</h1>
+
+    <div class="profile-photo">
+      <img [src]="fotoPreview || 'assets/default-user.png'" alt="Foto de perfil" />
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+    </div>
+
+    <form (submit)="salvar(nome.value, email.value, senha.value)">
+      <input id="nome" #nome placeholder="Nome" required />
+
+      <input id="email" type="email" #email placeholder="E-mail" required />
+
+      <input id="senha" type="password" #senha placeholder="Nova senha" />
+
+      <button type="submit">Salvar</button>
+    </form>
+  </main>
+</div>
