@@ -5,7 +5,7 @@
     <h1>Alterar Informações</h1>
 
     <div class="profile-photo">
-      <img [src]="fotoPreview || 'assets/default-user.png'" alt="Foto de perfil" />
+      <img [src]="fotoPreview || iconeusuario" alt="Foto de perfil" />
       <input type="file" accept="image/*" (change)="onFileSelected($event)" />
     </div>
 

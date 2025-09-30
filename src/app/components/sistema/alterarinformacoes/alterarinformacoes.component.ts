@@ -9,6 +9,7 @@ import { HeadercadastradoComponent } from "../../headers/headercadastrado/header
   styleUrls: ['./alterarinformacoes.component.css']
 })
 export class AlterarinformacoesComponent {
+  iconeusuario: string = "usericon.png"
   fotoPreview: string | ArrayBuffer | null = null;
   mensagem: string = '';
 

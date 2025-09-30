@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent {
   imglogo: string = "Logo.png";
-  usericon: string = "usericon.png";
 
   constructor(
     private route: ActivatedRoute,
