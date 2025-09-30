@@ -17,8 +17,8 @@ export class HeadercadastradoComponent {
     private router: Router
   ) {}
 
-  navigateToInicio(): void {
-    this.router.navigate(['/inicio']);
+  navigateToEscolhaSistema(): void {
+    this.router.navigate(['/escolhasistema']);
   }
 
   toggleMenu(): void {

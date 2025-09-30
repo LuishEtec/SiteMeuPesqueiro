@@ -9,14 +9,20 @@
       <input type="file" accept="image/*" (change)="onFileSelected($event)" />
     </div>
 
-    <form (submit)="salvar(nome.value, email.value, senha.value)">
-      <input id="nome" #nome placeholder="Nome" required />
+    <form (ngSubmit)="salvar(nome.value, email.value, senha.value)">
+      <input id="nome" #nome placeholder="Nome" />
 
-      <input id="email" type="email" #email placeholder="E-mail" required />
+      <input id="email" type="email" #email placeholder="E-mail" />
 
       <input id="senha" type="password" #senha placeholder="Nova senha" />
 
       <button type="submit">Salvar</button>
     </form>
+
+    <div class="mensagem-sucesso" >
+      @if (mensagem){
+        {{mensagem}}
+      }
+    </div>
   </main>
 </div>

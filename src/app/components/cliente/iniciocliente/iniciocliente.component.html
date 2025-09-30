@@ -1,56 +1,62 @@
-<app-headercadastrado></app-headercadastrado>
-<div class="container">
-  <div class="lista-pesqueiros">
-    <h3>Pesqueiros próximos de você</h3>
+<div class="app-container">
+  <app-headercadastrado></app-headercadastrado>
 
-    <div
-      class="item-pesqueiro"
-      *ngFor="let pesq of pesqueiros"
-      (click)="selecionarPesqueiro(pesq)"
-      [class.selecionado]="pesq === pesqueiroSelecionado"
-    >
-      <div class="info-pesqueiro">
-        <p class="nome">{{ pesq.nome }}</p>
-        <p class="avaliacao">{{ pesq.avaliacao }} ★ ({{ pesq.qtdAvaliacoes }})</p>
+  <div class="content">
+    <aside class="sidebar">
+      <h3>Pesqueiros próximos de você</h3>
+
+      @for (p of pesqueiros; track p.id) {
+        <div
+          class="list-item"
+          (click)="selectPesqueiro(p.id)"
+          [class.active]="selected.id === p.id"
+        >
+          <img [src]="p.imagens?.[0]" [alt]="p.nome" />
+          <div class="meta">
+            <strong>{{ p.nome }}</strong>
+            <div class="rating">{{ p.avaliacao }}</div>
+            <div class="photos">{{ p.fotos }} fotos ou mais</div>
+          </div>
+        </div>
+      }
+    </aside>
+
+    <main class="main-panel">
+      <h2>{{ selected.nome }}</h2>
+
+      <div class="middle-row">
+        <div class="image-box">
+          <div class="carousel">
+            @for (img of selected.imagens; track $index) {
+              <img
+                [src]="img"
+                [class.active]="$index === 0"
+                alt="foto do pesqueiro"
+              />
+            }
+          </div>
+
+          <div class="carousel-dots">
+            @for (img of selected.imagens; track $index) {
+              <span class="dot" [class.active]="$index === 0"></span>
+            }
+          </div>
+        </div>
+
+        <div class="address-box">
+          <h4>Endereço do pesqueiro</h4>
+          <div class="address">{{ selected.endereco }}</div>
+        </div>
       </div>
-      <img [src]="pesq.foto" class="foto-mini" alt="foto do pesqueiro" />
-    </div>
-  </div>
 
-  <div class="detalhes-pesqueiro" *ngIf="pesqueiroSelecionado">
-    <h2>{{ pesqueiroSelecionado.nome }}</h2>
+      <section class="info">
+        <h4>Informações do pesqueiro</h4>
+        <div class="info-box">{{ selected.descricao }}</div>
+      </section>
 
-    <div class="carrossel">
-      <button (click)="anteriorFoto()">&#8592;</button>
-      <img
-        [src]="pesqueiroSelecionado.fotos[fotoAtual]"
-        alt="foto do pesqueiro"
-        class="foto-grande"
-      />
-      <button (click)="proximaFoto()">&#8594;</button>
-    </div>
-
-    <div class="endereco">
-      <h4>Endereço do pesqueiro</h4>
-      <p>{{ pesqueiroSelecionado.endereco }}</p>
-    </div>
-
-    <div class="info-detalhada">
-      <h4>Informações do pesqueiro</h4>
-      <p>{{ pesqueiroSelecionado.informacoes }}</p>
-    </div>
-
-    <div class="acoes">
-      <p class="avaliacao-detalhe">
-        Avaliação: {{ pesqueiroSelecionado.avaliacao }} ★ ({{ pesqueiroSelecionado.qtdAvaliacoes }})
-      </p>
-      <button (click)="favoritar(pesqueiroSelecionado)"
-              [class.favorito]="pesqueiroSelecionado.favorito">
-        {{ pesqueiroSelecionado.favorito ? '★ Favorito' : '☆ Favoritar' }}
-      </button>
-    </div>
-    <button class="botao-mapa">
-      Clique para ver no mapa
-    </button>
+      <div class="map-button">
+        <button (click)="abrirMapa()">Clique para ver no mapa</button>
+      </div>
+    </main>
   </div>
 </div>

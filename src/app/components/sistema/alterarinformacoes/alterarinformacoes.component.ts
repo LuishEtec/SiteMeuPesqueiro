@@ -3,18 +3,20 @@ import { HeadercadastradoComponent } from "../../headers/headercadastrado/header
 
 @Component({
   selector: 'app-alterarinformacoes',
+  standalone: true,
   imports: [HeadercadastradoComponent],
   templateUrl: './alterarinformacoes.component.html',
-  styleUrl: './alterarinformacoes.component.css'
+  styleUrls: ['./alterarinformacoes.component.css']
 })
 export class AlterarinformacoesComponent {
-fotoPreview: string | ArrayBuffer | null = null;
+  fotoPreview: string | ArrayBuffer | null = null;
+  mensagem: string = '';
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = e => this.fotoPreview = reader.result;
+      reader.onload = () => this.fotoPreview = reader.result;
       reader.readAsDataURL(file);
     }
   }
@@ -25,6 +27,7 @@ fotoPreview: string | ArrayBuffer | null = null;
     console.log('Dados atualizados:', usuario);
     console.log('Foto de perfil:', this.fotoPreview);
 
-    alert('Informações salvas com sucesso!');
+    this.mensagem = 'Informações salvas com sucesso!';
+
   }
 }

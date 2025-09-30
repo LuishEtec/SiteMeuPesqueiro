@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { HeadercadastradoComponent } from '../../headers/headercadastrado/headercadastrado.component';
 
 interface Pesqueiro {
+  id: string;
   nome: string;
-  avaliacao: number;
-  qtdAvaliacoes: number;
-  foto: string;
-  fotos: string[];
-  endereco: string;
-  informacoes: string;
-  favorito?: boolean;
+  avaliacao?: string;
+  fotos?: number;
+  imagens?: string[];
+  endereco?: string;
+  descricao?: string;
 }
+
 @Component({
   selector: 'app-iniciocliente',
   imports: [HeadercadastradoComponent],
@@ -20,58 +20,43 @@ interface Pesqueiro {
 
 export class InicioclienteComponent {
   pesqueiros: Pesqueiro[] = [
-    {
-      nome: 'Pesqueiro Cantareira',
-      avaliacao: 4.3,
-      qtdAvaliacoes: 667,
-      foto: 'assets/pesqueiro1.jpg',
-      fotos: [
-        'assets/pesqueiro1.jpg',
-        'assets/pesqueiro1_2.jpg',
-        'assets/pesqueiro1_3.jpg'
-      ],
-      endereco: 'Av. Luís Carlos Gentile de Laet, 2500 - Tremembé, São Paulo - SP, 02378-000',
-      informacoes: 'Pesqueiro localizado na zona norte de São Paulo dentro do Clube da Sabesp. Possui 3 lagos...'
-    },
-    {
-      nome: 'Pesqueiro do Arnaldão',
-      avaliacao: 4.3,
-      qtdAvaliacoes: 988,
-      foto: 'assets/pesqueiro2.jpg',
-      fotos: [
-        'assets/pesqueiro2.jpg',
-        'assets/pesqueiro2_2.jpg'
-      ],
-      endereco: 'Rua Exemplo, 123 - Bairro, Cidade - SP, 01234-000',
-      informacoes: 'Pesqueiro com várias opções de lazer e restaurante local...'
-    }
-  ];
+  {
+    id: 'cantareira',
+    nome: 'Pesqueiro Cantareira',
+    avaliacao: '4.3 (667)',
+    fotos: 1827,
+    imagens: [
+      'assets/cantareira1.jpg',
+      'assets/cantareira2.jpg',
+      'assets/cantareira3.jpg'
+    ],
+    endereco: 'Av. Luís Carlos Gentile de Laet, 2500 - Tremembé, São Paulo - SP, 02378-000',
+    descricao: `Localizado na zona norte de São Paulo. Rua Luis Carlos Gentille de Laet. 2500 - Contato: 2204-7754`
+  },
+  {
+    id: 'arnaldo',
+    nome: 'Pesqueiro do Arnaldo',
+    avaliacao: '4.3 (968)',
+    fotos: 722,
+    imagens: [
+      'assets/arnaldo1.jpg',
+      'assets/placeholder.jpg'
+    ],
+    endereco: '',
+    descricao: ''
+  }
+];
 
-  pesqueiroSelecionado: Pesqueiro = this.pesqueiros[0];
-  fotoAtual: number = 0;
 
-  selecionarPesqueiro(pesq: Pesqueiro) {
-    this.pesqueiroSelecionado = pesq;
-    this.fotoAtual = 0;
+  selected = this.pesqueiros[0];
+
+  selectPesqueiro(id: string) {
+    const found = this.pesqueiros.find(p => p.id === id);
+    if (found) this.selected = found;
   }
 
-  anteriorFoto() {
-    if (this.fotoAtual > 0) {
-      this.fotoAtual--;
-    } else {
-      this.fotoAtual = this.pesqueiroSelecionado.fotos.length - 1;
-    }
-  }
-
-  proximaFoto() {
-    if (this.fotoAtual < this.pesqueiroSelecionado.fotos.length - 1) {
-      this.fotoAtual++;
-    } else {
-      this.fotoAtual = 0;
-    }
-  }
-
-  favoritar(pesq: Pesqueiro) {
-    pesq.favorito = !pesq.favorito;
+  abrirMapa() {
+    const q = encodeURIComponent(this.selected.endereco || this.selected.nome);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, '_blank');
   }
 }
