@@ -8,8 +8,8 @@
       @for (p of pesqueiros; track p.id) {
         <div
           class="list-item"
-          (click)="selectPesqueiro(p.id)"
-          [class.active]="selected.id === p.id"
+          (click)="selecionarPesqueiro(p.id)"
+          [class.active]="selecionado.id === p.id"
         >
           <img [src]="p.imagens?.[0]" [alt]="p.nome" />
           <div class="meta">
@@ -22,41 +22,51 @@
     </aside>
 
     <main class="main-panel">
-      <h2>{{ selected.nome }}</h2>
+      <h2>{{ selecionado.nome }}</h2>
 
       <div class="middle-row">
         <div class="image-box">
           <div class="carousel">
-            @for (img of selected.imagens; track $index) {
-              <img
-                [src]="img"
-                [class.active]="$index === 0"
-                alt="foto do pesqueiro"
-              />
-            }
+            <button class="nav prev" (click)="voltarImagem()">❮</button>
+            <img
+              [src]="selecionado.imagens?.[indiceImagem]"
+              alt="foto do pesqueiro"
+            />
+            <button class="nav next" (click)="avancarImagem()">❯</button>
           </div>
 
           <div class="carousel-dots">
-            @for (img of selected.imagens; track $index) {
-              <span class="dot" [class.active]="$index === 0"></span>
+            @for (img of selecionado.imagens; track $index) {
+              <span
+                class="dot"
+                [class.active]="$index === indiceImagem"
+                (click)="mudarImagem($index)"
+              ></span>
             }
           </div>
         </div>
 
         <div class="address-box">
           <h4>Endereço do pesqueiro</h4>
-          <div class="address">{{ selected.endereco }}</div>
+          <div class="address">{{ selecionado.endereco }}</div>
+          <h4 class="stars">Avaliações</h4>
+          <div class="avaliacoes">
+            <span *ngFor="let s of estrelas" class="estrela">★</span>
+            <span class="nota">{{ selecionado.avaliacao }}</span>
+          </div>
         </div>
       </div>
 
       <section class="info">
         <h4>Informações do pesqueiro</h4>
-        <div class="info-box">{{ selected.descricao }}</div>
+        <div class="info-box">{{ selecionado.descricao }}</div>
       </section>
 
-      <div class="map-button">
-        <button (click)="abrirMapa()">Clique para ver no mapa</button>
-      </div>
+      <section class="avaliar">
+        <h4>Escreva uma avaliação</h4>
+        <textarea [(ngModel)]="novaAvaliacao" placeholder="Digite sua opinião..."></textarea>
+        <button (click)="enviarAvaliacao()">Enviar</button>
+      </section>
     </main>
   </div>
 </div>

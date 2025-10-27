@@ -6,30 +6,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .app-container {
-  border: 2px solid #000;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-.app-header {
-  background: #6fb6e6;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.app-header h1 {
-  margin: 0;
-}
-.user-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #000;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .content {
   flex: 1;
@@ -39,6 +18,7 @@
   width: 270px;
   padding: 18px;
   border-right: 2px solid #ccc;
+  overflow-y: auto;
 }
 .sidebar h3 {
   margin-top: 0;
@@ -49,6 +29,7 @@
   padding: 8px;
   cursor: pointer;
   align-items: center;
+  transition: background 0.2s;
 }
 .list-item img {
   width: 72px;
@@ -56,54 +37,91 @@
   object-fit: cover;
   border-radius: 4px;
 }
-.list-item .meta {
-  font-size: 13px;
-}
 .list-item.active {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 6px;
 }
 .main-panel {
   flex: 1;
   padding: 24px;
+  overflow-y: auto;
 }
 .middle-row {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
 }
 .image-box {
   flex: 1;
   text-align: center;
+  position: relative;
 }
-.image-box img {
+.carousel {
+  position: relative;
+}
+.carousel img {
   max-width: 500px;
   height: 260px;
   object-fit: cover;
   border: 4px solid #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.nav.prev {
+  left: 10px;
+}
+.nav.next {
+  right: 10px;
 }
 .carousel-dots {
   margin-top: 10px;
 }
-.carousel-dots .dot {
+.dot {
   display: inline-block;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   border: 2px solid #777;
   margin: 0 6px;
+  cursor: pointer;
 }
-.carousel-dots .dot.active {
+.dot.active {
   background: #777;
 }
 .address-box {
   width: 300px;
 }
-.address-box .address {
+.address {
   border: 2px solid #ccc;
   padding: 12px;
   border-radius: 6px;
   min-height: 110px;
+}
+.stars {
+  margin-top: 12px;
+}
+.avaliacoes {
+  margin-top: 4px;
+}
+.estrela {
+  color: gold;
+  font-size: 22px;
+}
+.nota {
+  margin-left: 8px;
+  font-weight: bold;
 }
 .info {
   margin-top: 18px;
@@ -113,6 +131,27 @@
   padding: 12px;
   border-radius: 6px;
   min-height: 90px;
+}
+.avaliar {
+  margin-top: 20px;
+}
+.avaliar textarea {
+  width: 100%;
+  height: 80px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  resize: none;
+}
+.avaliar button {
+  margin-top: 8px;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #2b96d6;
+  color: #000000;
+  cursor: pointer;
 }
 .map-button {
   display: flex;
@@ -128,8 +167,6 @@
   color: #fff;
   cursor: pointer;
 }
-
-/* Responsivo simples */
 @media (max-width: 900px) {
   .content {
     flex-direction: column;
@@ -139,14 +176,12 @@
     border-right: none;
     border-bottom: 2px solid #ccc;
   }
-  .middle-row {
-    flex-direction: column;
-  }
-  .address-box {
-    width: 100%;
-  }
   .image-box img {
     width: 100%;
     height: 220px;
   }
+  .address-box {
+    width: 100%;
+  }
+  
 }
