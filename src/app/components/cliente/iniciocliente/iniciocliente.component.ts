@@ -50,7 +50,6 @@ export class InicioclienteComponent {
 
   selecionado = this.pesqueiros[0];
   indiceImagem = 0;
-  estrelas = Array(5).fill(0);
   novaAvaliacao = '';
 
   selecionarPesqueiro(id: string) {
@@ -85,5 +84,4 @@ export class InicioclienteComponent {
       this.novaAvaliacao = '';
     }
   }
-  
 }
