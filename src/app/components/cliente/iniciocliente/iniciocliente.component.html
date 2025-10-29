@@ -51,7 +51,7 @@
           <div class="address">{{ selecionado.endereco }}</div>
           <h4 class="stars">Avaliações</h4>
           <div class="avaliacoes">
-            <span *ngFor="let s of estrelas" class="estrela">★</span>
+
             <span class="nota">{{ selecionado.avaliacao }}</span>
           </div>
         </div>
@@ -62,11 +62,34 @@
         <div class="info-box">{{ selecionado.descricao }}</div>
       </section>
 
-      <section class="avaliar">
-        <h4>Escreva uma avaliação</h4>
-        <textarea [(ngModel)]="novaAvaliacao" placeholder="Digite sua opinião..."></textarea>
-        <button (click)="enviarAvaliacao()">Enviar</button>
-      </section>
+ <section class="avaliar">
+  <h4>Escreva uma avaliação</h4>
+
+  <div class="avaliacao-input">
+  <ng-container *ngFor="let s of estrelas">
+    <span
+      class="estrela"
+      style="cursor: pointer;"
+      (click)="definirNota(s)"
+      (mouseenter)="hoverEstrela = s"
+      (mouseleave)="hoverEstrela = 0"
+      [class.preenchida]="s <= (hoverEstrela || notaSelecionada)"
+      >★</span
+    >
+  </ng-container>
+
+  <span class="nota-num">{{ notaSelecionada }} / 5</span>
+</div>
+
+
+  <textarea
+    [(ngModel)]="novaAvaliacao"
+    placeholder="Digite sua opinião..."
+  ></textarea>
+
+  <button (click)="enviarAvaliacao()">Enviar</button>
+</section>
+
     </main>
   </div>
 </div>

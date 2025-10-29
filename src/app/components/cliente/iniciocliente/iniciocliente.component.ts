@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeadercadastradoComponent } from '../../headers/headercadastrado/headercadastrado.component';
+import { CommonModule } from '@angular/common';
 
 interface Pesqueiro {
   id: string;
@@ -15,7 +16,7 @@ interface Pesqueiro {
 @Component({
   selector: 'app-iniciocliente',
   standalone: true,
-  imports: [HeadercadastradoComponent, FormsModule],
+  imports: [HeadercadastradoComponent, FormsModule, CommonModule],
   templateUrl: './iniciocliente.component.html',
   styleUrl: './iniciocliente.component.css'
 })
@@ -52,6 +53,7 @@ export class InicioclienteComponent {
   indiceImagem = 0;
   novaAvaliacao = '';
 
+
   selecionarPesqueiro(id: string) {
     const encontrado = this.pesqueiros.find(p => p.id === id);
     if (encontrado) {
@@ -78,10 +80,28 @@ export class InicioclienteComponent {
     this.indiceImagem = indice;
   }
 
-  enviarAvaliacao() {
-    if (this.novaAvaliacao.trim()) {
-      alert('Avaliação enviada: ' + this.novaAvaliacao);
-      this.novaAvaliacao = '';
-    }
+estrelas: number[] = [1,2,3,4,5];
+notaSelecionada = 0;
+hoverEstrela = 0;
+
+definirNota(valor: number) {
+  this.notaSelecionada = valor;
+}
+
+hoverNota(valor: number) {
+  this.hoverEstrela = valor;
+}
+
+enviarAvaliacao() {
+  if (this.novaAvaliacao.trim() && this.notaSelecionada > 0) {
+    alert(
+      `Avaliação enviada!\n\nNota: ${this.notaSelecionada}/5\nComentário: ${this.novaAvaliacao}`
+    );
+    this.novaAvaliacao = '';
+    this.notaSelecionada = 0;
+  } else {
+    alert('Por favor, escreva uma opinião e selecione uma nota.');
   }
+}
+
 }
